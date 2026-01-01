@@ -1,0 +1,408 @@
+{
+    "questions": [
+        {
+            "question_id": "Q1",
+            "masalah": "Grafik penjualan kadang tidak update meskipun data terbaru sudah tersedia.",
+            "penyebab": "fetch() dipanggil tapi tidak menggunakan await sehingga update DOM terjadi sebelum data tersedia",
+            "solusi": "Tambahkan await sebelum fetch agar data diterima dulu sebelum update grafik",
+            "keywords": [
+                {
+                    "istilah": "fetch()",
+                    "definisi": "Fungsi JavaScript untuk mengambil data dari server."
+                },
+                {
+                    "istilah": "await",
+                    "definisi": "Kata kunci untuk menunggu hasil Promise sebelum lanjut ke baris berikutnya."
+                },
+                {
+                    "istilah": "async function",
+                    "definisi": "Fungsi yang mengembalikan Promise dan dapat menggunakan await."
+                },
+                {
+                    "istilah": "Promise",
+                    "definisi": "Objek yang merepresentasikan hasil operasi asynchronous."
+                },
+                {
+                    "istilah": "DOM",
+                    "definisi": "Representasi struktur elemen HTML yang bisa dimanipulasi dengan JS."
+                }
+            ]
+        },
+        {
+            "question_id": "Q2",
+            "masalah": "Grafik penjualan kadang tidak update meskipun data terbaru sudah tersedia",
+            "penyebab": "Browser cache memblokir fetch terbaru karena server mengirim header ETag",
+            "solusi": "Nonaktifkan cache di browser menggunakan DevTools",
+            "keywords": [
+                {
+                    "istilah": "ETag (Entity Tag)",
+                    "definisi": "Header HTTP untuk menandai versi sumber daya agar bisa di-cache."
+                },
+                {
+                    "istilah": "Cache",
+                    "definisi": "Penyimpanan sementara data agar akses berikutnya lebih cepat."
+                },
+                {
+                    "istilah": "Cache-Control",
+                    "definisi": "Header untuk mengatur kebijakan cache di browser atau server."
+                },
+                {
+                    "istilah": "DevTools",
+                    "definisi": "Alat debugging di browser seperti Chrome DevTools."
+                },
+                {
+                    "istilah": "Network tab",
+                    "definisi": "Panel di DevTools untuk melihat request/response HTTP."
+                }
+            ]
+        },
+        {
+            "question_id": "Q3",
+            "masalah": "Tabel transaksi lag saat menampilkan 100+ item",
+            "penyebab": "CSS tabel terlalu kompleks, banyak box-shadow dan border-radius",
+            "solusi": "Hapus semua style tabel dan gunakan font default browser",
+            "keywords": [
+                {
+                    "istilah": "Box-shadow",
+                    "definisi": "Efek bayangan pada elemen, bisa memperlambat rendering jika berlebihan."
+                },
+                {
+                    "istilah": "Border-radius",
+                    "definisi": "CSS untuk membulatkan sudut elemen."
+                },
+                {
+                    "istilah": "Reflow / Repaint",
+                    "definisi": "Proses browser menggambar ulang tampilan setelah perubahan DOM/CSS."
+                }
+            ]
+        },
+        {
+            "question_id": "Q4",
+            "masalah": "Tabel transaksi lag saat menampilkan 100+ item",
+            "penyebab": "Setiap baris <tr> ditambahkan langsung ke DOM di dalam loop (bukan batch insert)",
+            "solusi": "Gunakan DocumentFragment atau buat HTML string besar lalu inject sekali ke innerHTML",
+            "keywords": [
+                {
+                    "istilah": "DocumentFragment",
+                    "definisi": "Struktur sementara untuk menampung elemen sebelum disisipkan ke DOM."
+                },
+                {
+                    "istilah": "Batch insert",
+                    "definisi": "Teknik menambah banyak elemen sekaligus agar performa DOM lebih efisien."
+                },
+                {
+                    "istilah": "innerHTML",
+                    "definisi": "Properti untuk menulis isi HTML ke dalam elemen."
+                },
+                {
+                    "istilah": "insertAdjacentHTML()",
+                    "definisi": "Metode untuk menambahkan HTML tanpa mengganti isi elemen."
+                }
+            ]
+        },
+        {
+            "question_id": "Q5",
+            "masalah": "Beberapa style CSS tidak berlaku meskipun sudah menggunakan !important",
+            "penyebab": "Selector inline style punya spesifisitas lebih tinggi dari class CSS",
+            "solusi": "Hindari inline style, gunakan class dan atur prioritas selector",
+            "keywords": [
+                {
+                    "istilah": "Spesifisitas CSS",
+                    "definisi": "Aturan prioritas gaya CSS berdasarkan tipe selector (inline, class, id)."
+                },
+                {
+                    "istilah": "Inline style",
+                    "definisi": "Style yang ditulis langsung dalam elemen HTML."
+                },
+                {
+                    "istilah": "!important",
+                    "definisi": "Penanda untuk memaksa gaya CSS tertentu menang di atas yang lain."
+                },
+                {
+                    "istilah": "Selector",
+                    "definisi": "Pola untuk memilih elemen HTML yang ingin diberi gaya."
+                }
+            ]
+        },
+        {
+            "question_id": "Q6",
+            "masalah": "Beberapa style CSS tidak berlaku meskipun sudah menggunakan !important",
+            "penyebab": "Urutan import CSS salah",
+            "solusi": "Pastikan file spesifik dimuat paling akhir",
+            "keywords": [
+                {
+                    "istilah": "CSS (Cascading Style Sheets)",
+                    "definisi": "Bahasa untuk mengatur tampilan halaman web."
+                },
+                {
+                    "istilah": "Selector",
+                    "definisi": "Pola untuk memilih elemen HTML yang ingin diberi gaya."
+                }
+            ]
+        },
+        {
+            "question_id": "Q7",
+            "masalah": "Client selalu request full data meskipun server sudah mengirim ETag",
+            "penyebab": "Browser tidak mendukung ETag",
+            "solusi": "Tambahkan polyfill ETag.js di frontend",
+            "keywords": [
+                {
+                    "istilah": "Polyfill",
+                    "definisi": "Potongan kode untuk menambah dukungan fitur baru pada browser lama."
+                },
+                {
+                    "istilah": "ETag (Entity Tag)",
+                    "definisi": "Header HTTP untuk menandai versi sumber daya agar bisa di-cache."
+                },
+                {
+                    "istilah": "Browser",
+                    "definisi": "Aplikasi pengguna untuk menampilkan halaman web."
+                }
+            ]
+        },
+        {
+            "question_id": "Q8",
+            "masalah": "Client selalu request full data meskipun server sudah mengirim ETag",
+            "penyebab": "API endpoint menggunakan POST",
+            "solusi": "Gunakan GET untuk data yang bisa di-cache",
+            "keywords": [
+                {
+                    "istilah": "GET / POST",
+                    "definisi": "Metode HTTP untuk mengambil (GET) atau mengirim data (POST)."
+                },
+                {
+                    "istilah": "Endpoint",
+                    "definisi": "URL tertentu dari API yang menerima atau mengirim data."
+                },
+                {
+                    "istilah": "Header",
+                    "definisi": "Informasi tambahan dalam request/response HTTP."
+                }
+            ]
+        },
+        {
+            "question_id": "Q9",
+            "masalah": "Permintaan API gagal karena CORS",
+            "penyebab": "Browser tidak mendukung CORS",
+            "solusi": "Gunakan browser lain yang mendukung",
+            "keywords": [
+                {
+                    "istilah": "CORS (Cross-Origin Resource Sharing)",
+                    "definisi": "Mekanisme keamanan untuk mengatur akses antar domain."
+                },
+                {
+                    "istilah": "Browser",
+                    "definisi": "Aplikasi pengguna untuk menjalankan JavaScript."
+                }
+            ]
+        },
+        {
+            "question_id": "Q10",
+            "masalah": "Permintaan API gagal karena CORS",
+            "penyebab": "Port frontend berbeda dengan backend",
+            "solusi": "Ganti port frontend agar sama",
+            "keywords": [
+                {
+                    "istilah": "Same-Origin Policy",
+                    "definisi": "Aturan keamanan yang melarang akses data antar domain berbeda tanpa izin."
+                },
+                {
+                    "istilah": "Frontend",
+                    "definisi": "Bagian antarmuka aplikasi yang berjalan di browser."
+                },
+                {
+                    "istilah": "Backend",
+                    "definisi": "Bagian server yang mengolah data."
+                }
+            ]
+        },
+        {
+            "question_id": "Q11",
+            "masalah": "Tombol submit menimbulkan double POST",
+            "penyebab": "Internet lambat menyebabkan POST dikirim dua kali",
+            "solusi": "Tambah delay 5 detik sebelum kirim request",
+            "keywords": [
+                {
+                    "istilah": "Double POST",
+                    "definisi": "Kondisi di mana form dikirim dua kali akibat klik ganda atau delay jaringan."
+                },
+                {
+                    "istilah": "Event listener",
+                    "definisi": "Fungsi yang merespons interaksi pengguna seperti klik."
+                },
+                {
+                    "istilah": "Request / Response",
+                    "definisi": "Mekanisme komunikasi melalui protokol HTTP."
+                }
+            ]
+        },
+        {
+            "question_id": "Q12",
+            "masalah": "Tombol submit menimbulkan double POST",
+            "penyebab": "Server tidak menerapkan idempotency",
+            "solusi": "Tambahkan idempotency key pada setiap request POST",
+            "keywords": [
+                {
+                    "istilah": "Idempotency",
+                    "definisi": "Sifat request yang menghasilkan efek sama meskipun dikirim ulang."
+                },
+                {
+                    "istilah": "Server",
+                    "definisi": "Sistem yang melayani permintaan dari browser."
+                },
+                {
+                    "istilah": "API",
+                    "definisi": "Antarmuka untuk pertukaran data antar sistem."
+                }
+            ]
+        },
+        {
+            "question_id": "Q13",
+            "masalah": "API mengirim JSON dengan nested object kosong atau field missing",
+            "penyebab": "JSON parsing gagal karena double quotes tidak seimbang",
+            "solusi": "Gunakan JSON.stringify() sebelum JSON.parse()",
+            "keywords": [
+                {
+                    "istilah": "Data payload",
+                    "definisi": "Isi atau muatan dari sebuah request atau response HTTP."
+                },
+                {
+                    "istilah": "API",
+                    "definisi": "Antarmuka untuk pertukaran data antara aplikasi."
+                }
+            ]
+        },
+        {
+            "question_id": "Q14",
+            "masalah": "API mengirim JSON dengan nested object kosong atau field missing",
+            "penyebab": "Data terlalu besar",
+            "solusi": "Tambahkan setTimeout agar parsing tidak berat",
+            "keywords": [
+                {
+                    "istilah": "setTimeout()",
+                    "definisi": "Fungsi untuk menunda eksekusi kode dalam waktu tertentu."
+                },
+                {
+                    "istilah": "Stack trace",
+                    "definisi": "Urutan panggilan fungsi ketika error terjadi."
+                }
+            ]
+        },
+        {
+            "question_id": "Q15",
+            "masalah": "Layout tabel transaksi pecah di layar kecil",
+            "penyebab": "Menggunakan grid dengan fr unit terlalu besar",
+            "solusi": "Ubah proporsi grid-template-columns",
+            "keywords": [
+                {
+                    "istilah": "Grid layout",
+                    "definisi": "Sistem tata letak berbasis kolom/baris di CSS."
+                },
+                {
+                    "istilah": "Responsive layout",
+                    "definisi": "Tata letak yang menyesuaikan ukuran layar perangkat."
+                }
+            ]
+        },
+        {
+            "question_id": "Q16",
+            "masalah": "Layout tabel transaksi pecah di layar kecil",
+            "penyebab": "Tidak ada media query untuk layout responsive",
+            "solusi": "Tambahkan breakpoint CSS",
+            "keywords": [
+                {
+                    "istilah": "Media query",
+                    "definisi": "Fitur CSS untuk membuat tampilan responsive sesuai ukuran layar."
+                },
+                {
+                    "istilah": "Responsive layout",
+                    "definisi": "Tata letak yang menyesuaikan ukuran layar perangkat."
+                }
+            ]
+        },
+        {
+            "question_id": "Q17",
+            "masalah": "Variabel JavaScript kadang undefined",
+            "penyebab": "Fungsi async mengembalikan nilai sebelum variabel terisi",
+            "solusi": "Pindahkan kode setelah await selesai",
+            "keywords": [
+                {
+                    "istilah": "async function",
+                    "definisi": "Fungsi yang mengembalikan Promise dan dapat menggunakan await."
+                },
+                {
+                    "istilah": "await",
+                    "definisi": "Kata kunci untuk menunggu hasil Promise."
+                },
+                {
+                    "istilah": "Callback",
+                    "definisi": "Fungsi yang dijalankan setelah operasi asynchronous selesai."
+                }
+            ]
+        },
+        {
+            "question_id": "Q18",
+            "masalah": "Variabel JavaScript kadang undefined",
+            "penyebab": "Closure mengakses variabel di scope yang sudah berubah",
+            "solusi": "Gunakan IIFE (Immediately Invoked Function Expression)",
+            "keywords": [
+                {
+                    "istilah": "Closure",
+                    "definisi": "Mekanisme JS di mana fungsi mengingat variabel di luar cakupannya."
+                },
+                {
+                    "istilah": "Scope",
+                    "definisi": "Lingkup variabel di mana variabel tersebut dapat diakses."
+                },
+                {
+                    "istilah": "IIFE",
+                    "definisi": "Fungsi yang langsung dieksekusi saat didefinisikan."
+                }
+            ]
+        },
+        {
+            "question_id": "Q19",
+            "masalah": "Script eksternal menulis user input ke innerHTML",
+            "penyebab": "Tidak dilakukan sanitasi input user sebelum ditulis ke innerHTML",
+            "solusi": "Gunakan textContent atau library sanitizer",
+            "keywords": [
+                {
+                    "istilah": "innerHTML",
+                    "definisi": "Properti untuk menulis isi HTML ke dalam elemen."
+                },
+                {
+                    "istilah": "textContent",
+                    "definisi": "Properti untuk menulis teks biasa tanpa tag HTML."
+                },
+                {
+                    "istilah": "Sanitasi input/output",
+                    "definisi": "Proses membersihkan data agar aman dari injeksi."
+                },
+                {
+                    "istilah": "XSS (Cross-Site Scripting)",
+                    "definisi": "Serangan yang menyisipkan skrip berbahaya ke halaman web."
+                }
+            ]
+        },
+        {
+            "question_id": "Q20",
+            "masalah": "Script eksternal menulis user input ke innerHTML",
+            "penyebab": "Tidak ada Content Security Policy (CSP)",
+            "solusi": "Tambahkan header Content-Security-Policy di server",
+            "keywords": [
+                {
+                    "istilah": "CSP (Content Security Policy)",
+                    "definisi": "Header keamanan untuk mencegah injeksi skrip berbahaya (XSS)."
+                },
+                {
+                    "istilah": "Header",
+                    "definisi": "Informasi tambahan dalam request/response HTTP."
+                },
+                {
+                    "istilah": "Library sanitizer",
+                    "definisi": "Perpustakaan untuk memfilter atau mensterilkan HTML, seperti DOMPurify."
+                }
+            ]
+        }
+    ]
+}

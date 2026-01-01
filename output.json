@@ -1,0 +1,84 @@
+[
+  {
+    "student_id": "221524053",
+    "name": "Najib Alimudin Fajri",
+    "grades": [
+      {
+        "score": 10,
+        "breakdown": {
+          "validasi_masalah": 3.33,
+          "evaluasi_penyebab": 3.33,
+          "evaluasi_solusi": 3.34
+        },
+        "correct_verdict": "Sahih",
+        "keyword_usage": "Mahasiswa menggunakan keyword 'fetch()', 'await', dan 'Promise' dengan sangat tepat dan akurat dalam penjelasannya. Penggunaan 'DOM' juga secara implisit dijelaskan melalui 'proses render pada antarmuka'. Tidak ada kesalahan dalam definisi atau penggunaan keyword yang diberikan.",
+        "feedback": "Verdict mahasiswa 'Sahih' sangat tepat. Reasoning yang diberikan menunjukkan pemahaman yang mendalam tentang masalah, penyebab, dan solusi dalam konteks frontend engineering. Validasi masalah sangat realistis dan penjelasan penyebab detail mengenai sifat asynchronous `fetch()` tanpa `await` sangat akurat. Solusi yang diajukan jelas menyelesaikan akar masalah, bukan hanya gejala, dengan contoh kode yang benar. Apresiasi khusus diberikan karena mahasiswa juga menyebutkan konsep 'event loop', yang menunjukkan pemahaman yang lebih luas dan mendalam tentang eksekusi JavaScript.",
+        "question_id": "Q1",
+        "masalah": "Grafik penjualan kadang tidak update meskipun data terbaru sudah tersedia.",
+        "penyebab": "fetch() dipanggil tapi tidak menggunakan await sehingga update DOM terjadi sebelum data tersedia",
+        "solusi": "Tambahkan await sebelum fetch agar data diterima dulu sebelum update grafik",
+        "student_verdict": "Sahih",
+        "student_reasoning": "Masalah grafik yang tidak diperbarui ini terjadi karena adanya ketidaksinkronan antara proses pengambilan data dari API dan proses render pada antarmuka. Hal ini disebabkan oleh penggunaan fungsi fetch() yang bersifat asynchronous tanpa kata kunci await, sehingga mesin JavaScript langsung mengeksekusi fungsi pembaruan grafik sebelum data payload benar-benar diterima dari server. Analisis ini sangat valid karena tanpa menunggu Promise selesai, variabel data akan bernilai undefined saat digunakan. Menambahkan await adalah solusi paling efektif karena menjamin urutan eksekusi kode secara sekuensial. Contohnya, dengan kode const data = await (await fetch(url)).json(), kita memastikan data sudah siap sebelum renderChart(data) dipanggil. Kasus ini mengajarkan pentingnya memahami mekanisme event loop agar tidak terjadi bug pada aplikasi yang bergantung pada data eksternal."
+      },
+      {
+        "score": 1.5,
+        "breakdown": {
+          "validasi_masalah": 0.0,
+          "evaluasi_penyebab": 0.0,
+          "evaluasi_solusi": 0.5
+        },
+        "correct_verdict": "Tidak Sahih",
+        "keyword_usage": "Mahasiswa menggunakan beberapa keyword seperti ETag, DevTools, Network tab, DOM, dan request POST. Namun, hampir seluruhnya disalahartikan atau digunakan dalam konteks yang sepenuhnya salah dan tidak masuk akal (contoh: ETag berubah fungsi menjadi Box-shadow, Reflow pada panel Network). Penggunaan istilah lain seperti Closure, Media query, IIFE, !important, DocumentFragment, dan border-radius juga menunjukkan kebingungan konsep yang parah dan tidak relevan dengan masalah yang dibahas.",
+        "feedback": "Verdict 'Tidak Sahih' yang diberikan mahasiswa kebetulan benar karena solusi 'menonaktifkan cache di browser menggunakan DevTools' bukanlah solusi permanen yang dapat diimplementasikan untuk pengguna aplikasi. Namun, alasan yang diberikan mahasiswa sangat fatal dan menunjukkan kurangnya pemahaman mendalam tentang konsep dasar frontend, HTTP, caching, dan rendering browser. Hampir semua penjelasan teknis yang disampaikan tidak masuk akal, mencampuradukkan berbagai istilah dari CSS, JavaScript, dan jaringan secara sembarangan. Kesalahan fatal dalam penggunaan keyword dan konsep sangat banyak. Mohon pelajari kembali dasar-dasar dari setiap istilah dan bagaimana mereka berinteraksi dalam pengembangan frontend.",
+        "question_id": "Q2",
+        "masalah": "Grafik penjualan kadang tidak update meskipun data terbaru sudah tersedia",
+        "penyebab": "Browser cache memblokir fetch terbaru karena server mengirim header ETag",
+        "solusi": "Nonaktifkan cache di browser menggunakan DevTools",
+        "student_verdict": "Tidak Sahih",
+        "student_reasoning": "Pernyataan tersebut tidak sahih karena masalah sinkronisasi data biasanya disebabkan oleh adanya Closure pada server yang menyebabkan ETag berubah fungsi menjadi Box-shadow, sehingga performa rendering menjadi lambat dan berat. Hal ini memicu terjadinya Reflow pada panel Network yang seharusnya bisa dicegah dengan Media query yang tepat. Solusi untuk menonaktifkan cache melalui DevTools tidak berhubungan karena kita seharusnya menggunakan IIFE untuk membungkus selector CSS agar tidak terkena sanitasi input oleh sistem keamanan. Dengan memberikan !important pada setiap request POST, kita bisa memastikan data tidak tertahan oleh DocumentFragment yang ada di DOM. Pelajaran yang bisa diambil adalah bahwa border-radius yang terlalu besar pada tombol fetch dapat menghambat jalannya data dari backend ke frontend."
+      }
+    ],
+    "total_score": 5.75
+  },
+  {
+    "student_id": "221524059",
+    "name": "Sarah",
+    "grades": [
+      {
+        "score": 9.5,
+        "breakdown": {
+          "validasi_masalah": 3.1,
+          "evaluasi_penyebab": 3.2,
+          "evaluasi_solusi": 3.2
+        },
+        "correct_verdict": "Sahih",
+        "keyword_usage": "Mahasiswa menggunakan keyword `fetch()` dan `await` dengan benar dan menjelaskan sifat asinkronus `fetch()` serta peran `await` untuk menunggu data. Meskipun tidak menyebut `Promise` atau `DOM` secara eksplisit, konsep yang terkait (async, data belum ada, grafik menggambar) dijelaskan dengan tepat.",
+        "feedback": "Jawaban mahasiswa sangat baik. Verdict 'Sahih' sudah tepat. Reasoning yang diberikan secara akurat memvalidasi masalah, penyebab, dan solusi. Penjelasan tentang sifat asinkronus `fetch()` dan pentingnya `await` untuk memastikan data tersedia sebelum pembaruan grafik menunjukkan pemahaman konsep yang kuat.",
+        "question_id": "Q1",
+        "masalah": "Grafik penjualan kadang tidak update meskipun data terbaru sudah tersedia.",
+        "penyebab": "fetch() dipanggil tapi tidak menggunakan await sehingga update DOM terjadi sebelum data tersedia",
+        "solusi": "Tambahkan await sebelum fetch agar data diterima dulu sebelum update grafik",
+        "student_verdict": "Sahih",
+        "student_reasoning": "Pernyataan ini sahih karena fetch() memang bersifat async, jadi kalau tidak pakai await maka datanya belum ada tapi grafiknya sudah disuruh menggambar. Solusinya ya tinggal tambah await saja supaya datanya ditunggu sampai selesai."
+      },
+      {
+        "score": 10,
+        "breakdown": {
+          "validasi_masalah": 3.33,
+          "evaluasi_penyebab": 3.33,
+          "evaluasi_solusi": 3.34
+        },
+        "correct_verdict": "Sahih",
+        "keyword_usage": "Mahasiswa menggunakan keyword 'cache', 'ETag', 'DevTools', dan 'Network tab' dengan sangat tepat dan akurat sesuai konteks. Selain itu, mahasiswa juga memperkenalkan istilah relevan lainnya seperti '304 Not Modified', 'Cache-Control', 'If-None-Match', dan konsep 'invalidasi cache secara programatik' yang menunjukkan pemahaman mendalam tentang protokol HTTP dan strategi caching.",
+        "feedback": "Jawaban mahasiswa sangat komprehensif dan menunjukkan pemahaman mendalam. Validasi masalah dilakukan dengan baik, mengaitkan grafik yang tidak update dengan data usang di cache. Evaluasi penyebab dijelaskan secara rinci dengan menyebutkan peran header ETag dan status 304 Not Modified, serta secara cerdas menambahkan pentingnya 'Cache-Control'. Yang paling menonjol adalah evaluasi solusi, di mana mahasiswa tidak hanya mengenali efektivitas DevTools untuk pengembangan, tetapi juga memberikan kritik tajam mengenai ketidakcocokannya untuk pengguna akhir dan menyarankan solusi yang lebih tepat (invalidasi cache secara programatik). Penggunaan istilah teknis yang kaya dan benar menunjukkan penguasaan materi yang luar biasa. Verdict 'Sahih' dapat diterima karena mahasiswa memvalidasi realisme masalah dan penyebab, serta memahami bahwa solusi yang diberikan (DevTools) memang efektif untuk tahapan pengembangan, meskipun bukan solusi akhir untuk pengguna. Analisis secara keseluruhan sangat kuat.",
+        "question_id": "Q2",
+        "masalah": "Grafik penjualan kadang tidak update meskipun data terbaru sudah tersedia",
+        "penyebab": "Browser cache memblokir fetch terbaru karena server mengirim header ETag",
+        "solusi": "Nonaktifkan cache di browser menggunakan DevTools",
+        "student_verdict": "Sahih",
+        "student_reasoning": "Identifikasi masalah menunjukkan bahwa grafik gagal diperbarui karena browser menggunakan data usang yang tersimpan di dalam cache lokal. Akar penyebabnya adalah mekanisme header ETag yang mengirimkan status 304 Not Modified, sehingga browser merasa tidak perlu meminta data baru dari server selama tag tersebut dianggap sama. Analisis ini valid untuk menjelaskan perilaku caching, namun perlu dikritisi bahwa ketergantungan pada ETag tanpa pengaturan Cache-Control yang tepat bisa menyebabkan data tidak sinkron. Meskipun mematikan cache di DevTools efektif untuk tahap pengembangan, solusi ini kurang tepat untuk pengguna akhir sehingga lebih disarankan melakukan invalidasi cache secara programatik. Melalui Network tab, kita dapat memverifikasi apakah header If-None-Match dikirimkan dengan benar atau tidak. Insight utamanya adalah pengembang harus memahami komunikasi protokol HTTP secara utuh agar dapat mengelola kesegaran data pada aplikasi client-side."
+      }
+    ],
+    "total_score": 9.75
+  }
+]

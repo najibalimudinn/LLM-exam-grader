@@ -1,0 +1,36 @@
+{
+    "question_answer": [
+        {
+            "student_id": "221524053",
+            "name": "Najib Alimudin Fajri",
+            "answers": [
+                {
+                    "question_id": "Q1",
+                    "verdict": "Sahih",
+                    "answer": "Masalah grafik yang tidak diperbarui ini terjadi karena adanya ketidaksinkronan antara proses pengambilan data dari API dan proses render pada antarmuka. Hal ini disebabkan oleh penggunaan fungsi fetch() yang bersifat asynchronous tanpa kata kunci await, sehingga mesin JavaScript langsung mengeksekusi fungsi pembaruan grafik sebelum data payload benar-benar diterima dari server. Analisis ini sangat valid karena tanpa menunggu Promise selesai, variabel data akan bernilai undefined saat digunakan. Menambahkan await adalah solusi paling efektif karena menjamin urutan eksekusi kode secara sekuensial. Contohnya, dengan kode const data = await (await fetch(url)).json(), kita memastikan data sudah siap sebelum renderChart(data) dipanggil. Kasus ini mengajarkan pentingnya memahami mekanisme event loop agar tidak terjadi bug pada aplikasi yang bergantung pada data eksternal."
+                },
+                {
+                    "question_id": "Q2",
+                    "verdict": "Tidak Sahih",
+                    "student_answer": "Pernyataan tersebut tidak sahih karena masalah sinkronisasi data biasanya disebabkan oleh adanya Closure pada server yang menyebabkan ETag berubah fungsi menjadi Box-shadow, sehingga performa rendering menjadi lambat dan berat. Hal ini memicu terjadinya Reflow pada panel Network yang seharusnya bisa dicegah dengan Media query yang tepat. Solusi untuk menonaktifkan cache melalui DevTools tidak berhubungan karena kita seharusnya menggunakan IIFE untuk membungkus selector CSS agar tidak terkena sanitasi input oleh sistem keamanan. Dengan memberikan !important pada setiap request POST, kita bisa memastikan data tidak tertahan oleh DocumentFragment yang ada di DOM. Pelajaran yang bisa diambil adalah bahwa border-radius yang terlalu besar pada tombol fetch dapat menghambat jalannya data dari backend ke frontend."
+                }
+            ]
+        },
+        {
+            "student_id": "221524059",
+            "name": "Sarah",
+            "answers": [
+                {
+                    "question_id": "Q1",
+                    "verdict": "Sahih",
+                    "student_answer": "Pernyataan ini sahih karena fetch() memang bersifat async, jadi kalau tidak pakai await maka datanya belum ada tapi grafiknya sudah disuruh menggambar. Solusinya ya tinggal tambah await saja supaya datanya ditunggu sampai selesai."
+                },
+                {
+                    "question_id": "Q2",
+                    "verdict": "Sahih",
+                    "answer": "Identifikasi masalah menunjukkan bahwa grafik gagal diperbarui karena browser menggunakan data usang yang tersimpan di dalam cache lokal. Akar penyebabnya adalah mekanisme header ETag yang mengirimkan status 304 Not Modified, sehingga browser merasa tidak perlu meminta data baru dari server selama tag tersebut dianggap sama. Analisis ini valid untuk menjelaskan perilaku caching, namun perlu dikritisi bahwa ketergantungan pada ETag tanpa pengaturan Cache-Control yang tepat bisa menyebabkan data tidak sinkron. Meskipun mematikan cache di DevTools efektif untuk tahap pengembangan, solusi ini kurang tepat untuk pengguna akhir sehingga lebih disarankan melakukan invalidasi cache secara programatik. Melalui Network tab, kita dapat memverifikasi apakah header If-None-Match dikirimkan dengan benar atau tidak. Insight utamanya adalah pengembang harus memahami komunikasi protokol HTTP secara utuh agar dapat mengelola kesegaran data pada aplikasi client-side."
+                }
+            ]
+        }
+    ]
+}
